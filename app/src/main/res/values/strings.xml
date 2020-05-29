@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RTRC</string>
+    <string name="tab_text_1">Vahicles</string>
+    <string name="tab_text_2">Transactions</string>
+    <string name="tab_text_3">Account</string>
+</resources>

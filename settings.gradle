@@ -1,0 +1,2 @@
+rootProject.name='RTRC-Revenue-Collector'
+include ':app'

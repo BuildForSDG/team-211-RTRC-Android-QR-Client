@@ -1,7 +1,6 @@
 package com.andela.buildsdgs.rtrc.revcollector.ui.main.adaptors;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.andela.buildsdgs.rtrc.revcollector.R;
 import com.andela.buildsdgs.rtrc.revcollector.models.Vehicle;
-import com.andela.buildsdgs.rtrc.revcollector.ui.main.activity.VehicleDetailActivity;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
@@ -63,14 +61,7 @@ public class VehicleRecyclerAdaptor extends RecyclerView.Adapter<VehicleRecycler
             mImageVehicle = itemView.findViewById(R.id.image_reg_vehicle_image);
             mTextVehicleName = itemView.findViewById(R.id.txt_reg_vehicle_name);
             mTextVehicleCategory = itemView.findViewById(R.id.txt_reg_vehicle_category);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, VehicleDetailActivity.class);
-                    intent.putExtra("position b3n",mPosition);
-                    mContext.startActivity(intent);
-                }
-            });
+
 
         }
     }

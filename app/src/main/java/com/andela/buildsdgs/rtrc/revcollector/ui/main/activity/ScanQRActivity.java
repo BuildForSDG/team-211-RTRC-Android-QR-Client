@@ -37,7 +37,6 @@ import retrofit2.Response;
 public class ScanQRActivity extends AppCompatActivity {
 
     private View parentView;
-    boolean hasSuffientFunds = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -204,7 +203,7 @@ public class ScanQRActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Custom Warning");
+        getSupportActionBar().setTitle("QR Transaction");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this);
     }

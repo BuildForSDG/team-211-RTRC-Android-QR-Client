@@ -1,14 +1,21 @@
 package com.andela.buildsdgs.rtrc.revcollector.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private String is_active;
-    private String is_staff;
+    @SerializedName("is_active")
+    private String isActive;
+    @SerializedName("is_staff")
+    private String isStaff;
     private String phone;
-    private String is_collector;
+    @SerializedName("is_collector")
+    private String isCollector;
     private String name;
     private String pk;
-    private String date_joined;
-    private String is_user;
+    @SerializedName("date_joined")
+    private String dateJoined;
+    @SerializedName("is_user")
+    private String isUser;
     private String email;
     private String username;
     private String password;
@@ -20,21 +27,20 @@ public class User {
         this.password = password;
     }
 
-
-    public String getIs_active() {
-        return is_active;
+    public String getIsActive() {
+        return isActive;
     }
 
-    public void setIs_active(String is_active) {
-        this.is_active = is_active;
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
     }
 
-    public String getIs_staff() {
-        return is_staff;
+    public String getIsStaff() {
+        return isStaff;
     }
 
-    public void setIs_staff(String is_staff) {
-        this.is_staff = is_staff;
+    public void setIsStaff(String isStaff) {
+        this.isStaff = isStaff;
     }
 
     public String getPhone() {
@@ -45,12 +51,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getIs_collector() {
-        return is_collector;
+    public String getIsCollector() {
+        return isCollector;
     }
 
-    public void setIs_collector(String is_collector) {
-        this.is_collector = is_collector;
+    public void setIsCollector(String isCollector) {
+        this.isCollector = isCollector;
     }
 
     public String getName() {
@@ -69,20 +75,20 @@ public class User {
         this.pk = pk;
     }
 
-    public String getDate_joined() {
-        return date_joined;
+    public String getDateJoined() {
+        return dateJoined;
     }
 
-    public void setDate_joined(String date_joined) {
-        this.date_joined = date_joined;
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
     }
 
-    public String getIs_user() {
-        return is_user;
+    public String getIsUser() {
+        return isUser;
     }
 
-    public void setIs_user(String is_user) {
-        this.is_user = is_user;
+    public void setIsUser(String isUser) {
+        this.isUser = isUser;
     }
 
     public String getEmail() {
@@ -123,24 +129,5 @@ public class User {
 
     public void setPassword2(String password2) {
         this.password2 = password2;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "is_active='" + is_active + '\'' +
-                ", is_staff='" + is_staff + '\'' +
-                ", phone='" + phone + '\'' +
-                ", is_collector='" + is_collector + '\'' +
-                ", name='" + name + '\'' +
-                ", pk='" + pk + '\'' +
-                ", date_joined='" + date_joined + '\'' +
-                ", is_user='" + is_user + '\'' +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", password1='" + password1 + '\'' +
-                ", password2='" + password2 + '\'' +
-                '}';
     }
 }

@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.andela.buildsdgs.rtrc.revcollector.R;
-import com.andela.buildsdgs.rtrc.revcollector.controller.VehicleController;
 import com.andela.buildsdgs.rtrc.revcollector.models.Vehicle;
 import com.andela.buildsdgs.rtrc.revcollector.ui.main.adaptors.VehicleRecyclerAdaptor;
 
-
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class VehicleFragment extends Fragment {
     private Context mContext;
@@ -30,8 +30,8 @@ public class VehicleFragment extends Fragment {
         RecyclerView regVehicleRecyView =  view.findViewById(R.id.recycler_view_reg_vehicles);
         LinearLayoutManager regRecyLayoutManager = new LinearLayoutManager(mContext);
         regVehicleRecyView.setLayoutManager(regRecyLayoutManager);
-        List<Vehicle> vehicles = new VehicleController().getVehicleList();
-        VehicleRecyclerAdaptor recyclerAdaptor = new VehicleRecyclerAdaptor(mContext,vehicles);
+        List<Vehicle> vehicleList = new ArrayList<>();
+        VehicleRecyclerAdaptor recyclerAdaptor = new VehicleRecyclerAdaptor(mContext,vehicleList);
         regVehicleRecyView.setAdapter(recyclerAdaptor);
         return view;
     }

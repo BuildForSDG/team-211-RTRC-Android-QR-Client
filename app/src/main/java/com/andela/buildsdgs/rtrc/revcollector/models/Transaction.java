@@ -1,13 +1,13 @@
 package com.andela.buildsdgs.rtrc.revcollector.models;
 
 public class Transaction {
-    private int transactionId;
+    private String transactionId;
     private String vehicleName;
     private String vehicleCategory;
     private String transactionAmount;
     private String transactionTime;
 
-    public Transaction(int transactionId, String vehicleName, String vehicleCategory, String transactionAmount, String transactionTime) {
+    public Transaction(String transactionId, String vehicleName, String vehicleCategory, String transactionAmount, String transactionTime) {
         this.transactionId = transactionId;
         this.vehicleName = vehicleName;
         this.vehicleCategory = vehicleCategory;
@@ -15,14 +15,11 @@ public class Transaction {
         this.transactionTime = transactionTime;
     }
 
-    public Transaction() {
-    }
-
-    public int getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 

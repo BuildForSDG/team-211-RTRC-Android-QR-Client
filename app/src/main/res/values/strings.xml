@@ -3,4 +3,9 @@
     <string name="tab_text_1">Vahicles</string>
     <string name="tab_text_2">Transactions</string>
     <string name="tab_text_3">Account</string>
+    <string name="insufficient_balance">Sorry, driver need to topup their balance.</string>
+    <string name="insufficient_balance_title">Insufficient Balance!</string>
+    <string name="payment_confirmed">Confirm payment for vehicle.</string>
+    <string name="payment_confirmed_title">Vehicle Found!</string>
+
 </resources>

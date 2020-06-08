@@ -38,8 +38,8 @@ public class VehicleRecyclerAdaptor extends RecyclerView.Adapter<VehicleRecycler
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Vehicle vehicle = vehicles.get(position);
-        holder.mTextVehicleName.setText(vehicle.getVehicleName());
-        holder.mTextVehicleCategory.setText(vehicle.getVehicleCategory());
+        holder.mTextVehicleName.setText(vehicle.getModel());
+        holder.mTextVehicleCategory.setText(vehicle.getCategory().getName());
         holder.mPosition=position;
     }
 

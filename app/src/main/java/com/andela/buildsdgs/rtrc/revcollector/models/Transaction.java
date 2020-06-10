@@ -1,57 +1,42 @@
 package com.andela.buildsdgs.rtrc.revcollector.models;
 
+import java.util.List;
+
 public class Transaction {
-    private String transactionId;
-    private String vehicleName;
-    private String vehicleCategory;
-    private String transactionAmount;
-    private String transactionTime;
+    private String next;
+    private String previous;
+    private String count;
+    private List<TransactionResults> results;
 
-    public Transaction(String transactionId, String vehicleName, String vehicleCategory, String transactionAmount, String transactionTime) {
-        this.transactionId = transactionId;
-        this.vehicleName = vehicleName;
-        this.vehicleCategory = vehicleCategory;
-        this.transactionAmount = transactionAmount;
-        this.transactionTime = transactionTime;
+    public String getNext() {
+        return next;
     }
 
-    public String getTransactionId() {
-        return transactionId;
+    public void setNext(String next) {
+        this.next = next;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+    public String getPrevious() {
+        return previous;
     }
 
-    public String getVehicleName() {
-        return vehicleName;
+    public void setPrevious(String previous) {
+        this.previous = previous;
     }
 
-    public void setVehicleName(String vehicleName) {
-        this.vehicleName = vehicleName;
+    public String getCount() {
+        return count;
     }
 
-    public String getVehicleCategory() {
-        return vehicleCategory;
+    public void setCount(String count) {
+        this.count = count;
     }
 
-    public void setVehicleCategory(String vehicleCategory) {
-        this.vehicleCategory = vehicleCategory;
+    public List<TransactionResults> getResults() {
+        return results;
     }
 
-    public String getTransactionAmount() {
-        return transactionAmount;
-    }
-
-    public void setTransactionAmount(String transactionAmount) {
-        this.transactionAmount = transactionAmount;
-    }
-
-    public String getTransactionTime() {
-        return transactionTime;
-    }
-
-    public void setTransactionTime(String transactionTime) {
-        this.transactionTime = transactionTime;
+    public void setResults(List<TransactionResults> results) {
+        this.results = results;
     }
 }

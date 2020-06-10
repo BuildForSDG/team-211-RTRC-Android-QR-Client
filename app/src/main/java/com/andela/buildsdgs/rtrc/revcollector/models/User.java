@@ -22,6 +22,9 @@ public class User {
     private String password1;
     private String password2;
 
+    public User() {
+    }
+
     public User(String email, String password) {
         this.email = email;
         this.password = password;
@@ -129,5 +132,24 @@ public class User {
 
     public void setPassword2(String password2) {
         this.password2 = password2;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "isActive='" + isActive + '\'' +
+                ", isStaff='" + isStaff + '\'' +
+                ", phone='" + phone + '\'' +
+                ", isCollector='" + isCollector + '\'' +
+                ", name='" + name + '\'' +
+                ", pk='" + pk + '\'' +
+                ", dateJoined='" + dateJoined + '\'' +
+                ", isUser='" + isUser + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", password1='" + password1 + '\'' +
+                ", password2='" + password2 + '\'' +
+                '}';
     }
 }

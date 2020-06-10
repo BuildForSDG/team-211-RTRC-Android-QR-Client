@@ -2,8 +2,8 @@ package com.andela.buildsdgs.rtrc.revcollector.models;
 
 public class TransactionRequest {
 
-    String vehicle;
-    String location;
+   private String vehicle;
+   private String location;
 
     public TransactionRequest(String vehicle, String location) {
         this.vehicle = vehicle;

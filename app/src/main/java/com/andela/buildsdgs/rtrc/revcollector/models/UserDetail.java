@@ -19,4 +19,12 @@ public class UserDetail {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "UserDetail{" +
+                "token='" + token + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

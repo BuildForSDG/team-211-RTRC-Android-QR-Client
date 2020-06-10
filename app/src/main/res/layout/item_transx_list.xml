@@ -19,72 +19,124 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <LinearLayout
+                android:id="@+id/lyt_parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_multi_selection"
                 android:orientation="horizontal"
-                android:padding="@dimen/spacing_middle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:paddingBottom="@dimen/spacing_large"
+                android:paddingTop="@dimen/spacing_large"
+                tools:ignore="MissingConstraints">
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/image_transaction_image"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="@dimen/spacing_xsmall"
-                    android:src="@drawable/car_1"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/grey_20"
-                    app:civ_border_width="3dp"
-                    app:civ_shadow="true"
-                    app:civ_shadow_radius="0" />
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/lyt_checked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerInParent="true"
+                            tools:ignore="VectorDrawableCompat" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/lyt_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/trnx_list_image"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="@dimen/spacing_xsmall"
+                            android:src="@drawable/car_1"
+                            app:civ_border="true"
+                            app:civ_border_color="@color/grey_20"
+                            app:civ_border_width="3dp"
+                            app:civ_shadow="true"
+                            app:civ_shadow_radius="0" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/spacing_smlarge"
+                    android:layout_height="0dp" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_trnx_list_model"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Model"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_tranx_list_vehicle_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Vehicle Type"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/grey_90"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_transx_list_reg_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Reg No"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/grey_40" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txt_transx_list_datetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="10:30 AM"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/blue_300"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
 
                 <View
                     android:layout_width="@dimen/spacing_large"
-                    android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txt_transx_car_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="2"
-                        android:text="Nissan Patrol"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/grey_80"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:id="@+id/txt_tranx_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="02 Mar 2016 8:24pm"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                        android:textColor="@color/grey_40" />
-
-                    <TextView
-                        android:id="@+id/txt_transx_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:maxLines="2"
-                        android:text="GHS 5"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:textColor="@color/grey_80" />
-
-                </LinearLayout>
-
+                    android:layout_height="0dp" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

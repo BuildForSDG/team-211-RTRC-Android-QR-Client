@@ -37,11 +37,13 @@ import retrofit2.Response;
 public class ScanQRActivity extends AppCompatActivity {
 
     private View parentView;
+    Tools serviceTools = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
         parentView = findViewById(android.R.id.content);
+        serviceTools = new Tools(ScanQRActivity.this);
         initToolbar();
         AppCompatButton scanButton = findViewById(R.id.scan_button);
         scanButton.setOnClickListener(v -> {
@@ -69,7 +71,7 @@ public class ScanQRActivity extends AppCompatActivity {
 
                 //make API call the vehicle detail
                 RTRCService rtrcService = ServiceUtil.buildService(RTRCService.class);
-                Call<Vehicle> vehicleCall = rtrcService.getVehicleDetail("Bearer " + ServiceContants.AUTH_TOKEN, vehicleId);
+                Call<Vehicle> vehicleCall = rtrcService.getVehicleDetail("Bearer " + serviceTools.retrieveUserProfile().getToken(), vehicleId);
                 vehicleCall.enqueue(new Callback<Vehicle>() {
                     @Override
                     public void onResponse(Call<Vehicle> call, Response<Vehicle> response) {
@@ -122,14 +124,14 @@ public class ScanQRActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(), ((AppCompatButton) v).getText().toString() + " Clicked", Toast.LENGTH_LONG).show();
             //make call to get location for collector
             RTRCService rtrcService = ServiceUtil.buildService(RTRCService.class);
-            Call<TollLocations> tollLocationsCall = rtrcService.getTollLocation("Bearer " + ServiceContants.AUTH_TOKEN);
+            Call<TollLocations> tollLocationsCall = rtrcService.getTollLocation("Bearer " + serviceTools.retrieveUserProfile().getToken());
             tollLocationsCall.enqueue(new Callback<TollLocations>() {
                 @Override
                 public void onResponse(Call<TollLocations> call, Response<TollLocations> response) {
 
                     if (response.isSuccessful() & response.body() !=null) {
                         Collector collector = response.body().getResults()[0].getCollectors()[0];
-                        if(ServiceContants.COLLECTOR_ID.equals(collector.getId())){
+                        if(serviceTools.retrieveUserProfile().getUser().getPk().equals(collector.getId())){
                             String vehicleId=vehicle.getId();
                             String locationId = response.body().getResults()[0].getId();
                             System.out.println("Vehicle id : " + vehicleId);
@@ -137,7 +139,7 @@ public class ScanQRActivity extends AppCompatActivity {
                             System.out.println("Posting Transaction............." );
 
                             RTRCService rtrcService = ServiceUtil.buildService(RTRCService.class);
-                            Call<Transaction> transactionCall = rtrcService.confirmTransaction("Bearer " + ServiceContants.AUTH_TOKEN, new TransactionRequest(vehicleId,locationId));
+                            Call<Transaction> transactionCall = rtrcService.confirmTransaction("Bearer " + serviceTools.retrieveUserProfile().getToken(), new TransactionRequest(vehicleId,locationId));
                             transactionCall.enqueue(new Callback<Transaction>() {
                                 @Override
                                 public void onResponse(Call<Transaction> call, Response<Transaction> response) {

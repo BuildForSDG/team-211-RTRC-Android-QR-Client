@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.andela.buildsdgs.rtrc.revcollector.R;
-import com.andela.buildsdgs.rtrc.revcollector.models.Transaction;
 import com.andela.buildsdgs.rtrc.revcollector.models.TransactionResults;
 import com.andela.buildsdgs.rtrc.revcollector.ui.main.activity.TransactionDetailActivity;
 import com.mikhaellopez.circularimageview.CircularImageView;

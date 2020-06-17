@@ -16,13 +16,12 @@ import android.widget.Toast;
 
 import com.andela.buildsdgs.rtrc.revcollector.R;
 import com.andela.buildsdgs.rtrc.revcollector.models.Collector;
+import com.andela.buildsdgs.rtrc.revcollector.models.PaymentResponse;
 import com.andela.buildsdgs.rtrc.revcollector.models.TollLocations;
-import com.andela.buildsdgs.rtrc.revcollector.models.Transaction;
 import com.andela.buildsdgs.rtrc.revcollector.models.TransactionRequest;
 import com.andela.buildsdgs.rtrc.revcollector.models.Vehicle;
 import com.andela.buildsdgs.rtrc.revcollector.services.RTRCService;
 import com.andela.buildsdgs.rtrc.revcollector.services.ServiceUtil;
-import com.andela.buildsdgs.rtrc.revcollector.utility.ServiceContants;
 import com.andela.buildsdgs.rtrc.revcollector.utility.Tools;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -139,24 +138,28 @@ public class ScanQRActivity extends AppCompatActivity {
                             System.out.println("Posting Transaction............." );
 
                             RTRCService rtrcService = ServiceUtil.buildService(RTRCService.class);
-                            Call<Transaction> transactionCall = rtrcService.confirmTransaction("Bearer " + serviceTools.retrieveUserProfile().getToken(), new TransactionRequest(vehicleId,locationId));
-                            transactionCall.enqueue(new Callback<Transaction>() {
+                            Call<PaymentResponse> transactionCall = rtrcService.confirmTransaction("Bearer " + serviceTools.retrieveUserProfile().getToken(), new TransactionRequest(vehicleId,locationId));
+                            transactionCall.enqueue(new Callback<PaymentResponse>() {
                                 @Override
-                                public void onResponse(Call<Transaction> call, Response<Transaction> response) {
+                                public void onResponse(Call<PaymentResponse> call, Response<PaymentResponse> response) {
                                     if (response.isSuccessful()) {
-                                        Snackbar.make(parentView, "SUCCESS", Snackbar.LENGTH_LONG).show();
+                                        Snackbar.make(parentView, response.body().getResults(), Snackbar.LENGTH_LONG).show();
                                     } else {
                                         try {
                                             JSONObject jObjError = new JSONObject(response.errorBody().string());
                                             Snackbar.make(parentView, "Error Posting Transaction ; " + jObjError.toString(), Snackbar.LENGTH_LONG).show();
                                         } catch (Exception e) {
                                             Snackbar.make(parentView, "Error Posting Transaction ; " + e.toString(), Snackbar.LENGTH_LONG).show();
+                                            System.out.println("Location id : " + locationId);
+
                                         }
                                     }
                                 }
+
                                 @Override
-                                public void onFailure(Call<Transaction> call, Throwable t) {
+                                public void onFailure(Call<PaymentResponse> call, Throwable t) {
                                     Snackbar.make(parentView, "Error Posting Transaction ; " + t.toString(), Snackbar.LENGTH_LONG).show();
+
                                 }
                             });
 

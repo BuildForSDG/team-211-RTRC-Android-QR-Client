@@ -1,5 +1,6 @@
 package com.andela.buildsdgs.rtrc.revcollector.services;
 
+import com.andela.buildsdgs.rtrc.revcollector.models.PaymentResponse;
 import com.andela.buildsdgs.rtrc.revcollector.models.TollLocations;
 import com.andela.buildsdgs.rtrc.revcollector.models.Transaction;
 import com.andela.buildsdgs.rtrc.revcollector.models.TransactionRequest;
@@ -26,7 +27,7 @@ public interface RTRCService {
     @GET(ServiceContants.CONTEXT_TRANSACTION_HISTORY)
     Call<Transaction> getTransactionHistory(@Header("Authorization") String bearerToken);
     @POST(ServiceContants.CONTEXT_CONFIRM_TRANSACTION)
-    Call<Transaction> confirmTransaction(@Header("Authorization") String bearerToken, @Body TransactionRequest transactionRequest);
+    Call<PaymentResponse> confirmTransaction(@Header("Authorization") String bearerToken, @Body TransactionRequest transactionRequest);
     @GET(ServiceContants.CONTEXT_TRANSACTION_DETAIL)
     Call<TransactionResults> getTransactionDetail(@Header("Authorization") String bearerToken ,@Path("id") String id);
 }

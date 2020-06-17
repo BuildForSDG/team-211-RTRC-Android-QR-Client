@@ -82,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onFailure(Call<UserDetail> call, Throwable t) {
                         System.out.println(" debuggin starts 3....");
                         System.out.println("Error Occurred ::: " + t.toString());
+                        Snackbar.make(parent_view, "Login Failed; Reason : " + t.toString(), Snackbar.LENGTH_LONG).show();
+
                     }
                 });
             }

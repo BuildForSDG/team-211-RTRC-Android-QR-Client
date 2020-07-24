@@ -25,7 +25,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/car_3"
+                android:src="@drawable/digi_toll_logo_1"
                 />
 
             <View
